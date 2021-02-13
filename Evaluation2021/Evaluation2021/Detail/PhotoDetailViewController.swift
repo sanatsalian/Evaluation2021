@@ -16,6 +16,7 @@ class PhotoDetailViewController: BaseViewController {
     @IBOutlet weak var zoomInButton: UIButton!
     @IBOutlet weak var zoomOutButton: UIButton!
     
+    @IBOutlet weak var navBar: UINavigationBar!
     var photo: Photo?
     
     
@@ -23,13 +24,13 @@ class PhotoDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        addNavBar()
     }
+   
     
     //MARK: - Helper methods
     
@@ -39,9 +40,15 @@ class PhotoDetailViewController: BaseViewController {
                 imageView.load(url: url)
             }
         }
-        
-        
-        
+         
+    }
+    
+    func addNavBar() {
+        navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
     }
     
     //MARK: - Button Action

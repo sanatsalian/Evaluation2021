@@ -22,10 +22,10 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKD-6p-Xk9">
-                                <rect key="frame" x="16" y="251" width="382" height="48"/>
+                                <rect key="frame" x="16" y="253" width="382" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search photos, videos , artists" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdN-TR-fiB">
-                                        <rect key="frame" x="36" y="15.5" width="346" height="17"/>
+                                        <rect key="frame" x="36" y="13.5" width="346" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="o7x-9F-cwW"/>
                                         </constraints>
@@ -33,7 +33,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search Icon" translatesAutoresizingMaskIntoConstraints="NO" id="KhI-lS-1fq">
-                                        <rect key="frame" x="8" y="14" width="20" height="20"/>
+                                        <rect key="frame" x="8" y="12" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="63A-Kk-1Yz"/>
                                             <constraint firstAttribute="width" constant="20" id="lZd-kO-FOY"/>
@@ -47,7 +47,7 @@
                                     <constraint firstItem="wdN-TR-fiB" firstAttribute="centerY" secondItem="YKD-6p-Xk9" secondAttribute="centerY" id="PPG-hL-p1u"/>
                                     <constraint firstItem="KhI-lS-1fq" firstAttribute="leading" secondItem="YKD-6p-Xk9" secondAttribute="leading" constant="8" id="U0U-T9-OLw"/>
                                     <constraint firstAttribute="trailing" secondItem="wdN-TR-fiB" secondAttribute="trailing" id="e6A-uL-vVi"/>
-                                    <constraint firstAttribute="height" constant="48" id="ias-7r-nH9"/>
+                                    <constraint firstAttribute="height" constant="44" id="ias-7r-nH9"/>
                                     <constraint firstItem="wdN-TR-fiB" firstAttribute="top" secondItem="YKD-6p-Xk9" secondAttribute="top" constant="28" id="ieN-mm-Pfo"/>
                                     <constraint firstItem="KhI-lS-1fq" firstAttribute="centerY" secondItem="YKD-6p-Xk9" secondAttribute="centerY" id="myl-7b-cbN"/>
                                     <constraint firstItem="wdN-TR-fiB" firstAttribute="centerY" secondItem="YKD-6p-Xk9" secondAttribute="centerY" id="y9b-eS-hAt"/>
@@ -281,7 +281,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5N-AS-JTl">
-                                <rect key="frame" x="354" y="94" width="30" height="30"/>
+                                <rect key="frame" x="354" y="104" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="BaJ-6U-dxg"/>
                                     <constraint firstAttribute="height" constant="30" id="Gof-Qm-P4k"/>
@@ -298,12 +298,12 @@
                             <constraint firstItem="SaQ-Bj-Tv3" firstAttribute="leading" secondItem="Mm1-xc-r7D" secondAttribute="leading" id="A1g-36-Bop"/>
                             <constraint firstItem="pn9-LK-euK" firstAttribute="leading" secondItem="bVL-Tf-Rfx" secondAttribute="trailing" constant="5" id="HsT-SX-hA4"/>
                             <constraint firstItem="bVL-Tf-Rfx" firstAttribute="centerX" secondItem="SaQ-Bj-Tv3" secondAttribute="centerX" constant="-30" id="JV7-7T-igl"/>
+                            <constraint firstItem="S5N-AS-JTl" firstAttribute="top" secondItem="Mm1-xc-r7D" secondAttribute="top" constant="60" id="KZr-NO-i4J"/>
                             <constraint firstItem="Mm1-xc-r7D" firstAttribute="bottom" secondItem="SaQ-Bj-Tv3" secondAttribute="bottom" constant="50" id="LOy-KN-Hjh"/>
                             <constraint firstItem="pn9-LK-euK" firstAttribute="width" secondItem="bVL-Tf-Rfx" secondAttribute="width" multiplier="0.92" id="Mqf-TT-fdl"/>
                             <constraint firstItem="Mm1-xc-r7D" firstAttribute="trailing" secondItem="SaQ-Bj-Tv3" secondAttribute="trailing" id="XTm-y0-N9w"/>
                             <constraint firstItem="Mm1-xc-r7D" firstAttribute="bottom" secondItem="bVL-Tf-Rfx" secondAttribute="bottom" constant="70" id="Ypd-M6-5LH"/>
                             <constraint firstItem="Mm1-xc-r7D" firstAttribute="trailing" secondItem="S5N-AS-JTl" secondAttribute="trailing" constant="30" id="Zh7-IC-ddS"/>
-                            <constraint firstItem="S5N-AS-JTl" firstAttribute="top" secondItem="Mm1-xc-r7D" secondAttribute="top" constant="50" id="f3X-jQ-Yda"/>
                             <constraint firstItem="pn9-LK-euK" firstAttribute="centerY" secondItem="bVL-Tf-Rfx" secondAttribute="centerY" id="mMX-ph-5Kk"/>
                             <constraint firstItem="pn9-LK-euK" firstAttribute="height" secondItem="bVL-Tf-Rfx" secondAttribute="height" id="vo8-Jv-x5u"/>
                         </constraints>

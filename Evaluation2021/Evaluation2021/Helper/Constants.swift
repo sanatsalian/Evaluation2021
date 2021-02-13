@@ -53,3 +53,9 @@ enum API: String {
     }
 }
 
+
+enum Mediatype {
+    
+    case photo 
+    case video
+}

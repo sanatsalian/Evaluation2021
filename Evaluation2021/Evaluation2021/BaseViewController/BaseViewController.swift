@@ -40,21 +40,24 @@ class BaseViewController: UIViewController {
     
     
     func showActivityIndicator() {
-        activityView = UIActivityIndicatorView(style: .large)
-        activityView?.center = self.view.center
-        self.view.addSubview(activityView!)
-        activityView?.startAnimating()
+        let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
     }
 
     func hideActivityIndicator(){
-        if (activityView != nil){
-            DispatchQueue.global().async {
-               self.activityView?.stopAnimating()
-            }
-                
-            
-            
-        }
+
+        dismiss(animated: false, completion: nil)
     }
-     
+    
+    
+
+
+    
 }

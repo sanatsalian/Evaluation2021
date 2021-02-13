@@ -36,6 +36,8 @@ class ViewController: BaseViewController {
     var videospage = 1
     var videoLimit = 20
     
+    var favourites: [Favorite] = []
+    
     //MARK: - View Controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,7 @@ class ViewController: BaseViewController {
         setupNavigatinView()
     
     }
+    
 
     override var navigationView: UIView? {
         let navView = Bundle.main.loadNibNamed(AppConstants.homeNavigation, owner: self, options: nil)?.first as? UIView
@@ -62,8 +65,14 @@ class ViewController: BaseViewController {
         switch selectedTab {
         case .photos:
             loadPhotos()
+            videospage = 1
+            videoLimit = 20
         case .videos:
             loadVideos()
+            photopage = 1
+            photoLimit = 20
+        case .favorites:
+            tableView.reloadData()
         default:
             break
         }
@@ -84,6 +93,7 @@ class ViewController: BaseViewController {
             self?.hideActivityIndicator()
             self?.videospage = (self?.videospage ?? 1) + 1
             self?.processVideosResponse (response: response)
+            self?.getFavoritePhotos()
         }
     }
     
@@ -115,14 +125,38 @@ class ViewController: BaseViewController {
         }
     }
     
-    func configurePhotosCell(_ cell: HomeScreenTableViewCell, withPhoto photo: Photo) {
-        if let url = URL(string: photo.source?.originalPhoto ?? "") {
-             cell.backgroundImageView.load(url: url)
-        } else {
-            cell.backgroundImageView.image = UIImage(named: "gray")
+    func getFavoritePhotos() {
+        let favPhotos = photos.filter{$0.liked == true}
+//        var FavList:
+        for photo in favPhotos {
+            let favPhoto = createFavPhoto(photo)
+            favourites.append(favPhoto)
         }
+    }
+    
+    private func createFavPhoto(_ photo: Photo) -> Favorite {
+        var fav = Favorite()
+        fav.id = photo.id
+        fav.imageUrl = photo.source?.originalPhoto
+        fav.name = photo.photographer
+        fav.liked = photo.liked
+        fav.type = .photo
+        
+        return fav
+        
+    }
+    
+    func configurePhotosCell(_ cell: HomeScreenTableViewCell, withPhoto photo: Photo) {
+        cell.backgroundImageView.imageFromURL(urlString: photo.source?.originalPhoto ?? "")
         cell.playButton.isHidden = true
         cell.nameLabel.text = photo.photographer
+        cell.isFavorite = photo.liked ?? false
+        cell.favoriteButton.isSelected = photo.liked ?? false
+        if photo.liked ?? false {
+            cell.favoriteButton.setImage(UIImage(named: "Details-Favorite-slect"), for: .normal)
+        } else {
+            cell.favoriteButton.setImage(UIImage(named: "Facorite_home-deselet"), for: .normal)
+        }
     
     }
     
@@ -137,9 +171,21 @@ class ViewController: BaseViewController {
     
     }
     
+    func configureFavoriteCell(_ cell: HomeScreenTableViewCell, withFavorite favorite: Favorite) {
+        if let url = URL(string: favorite.imageUrl ?? "") {
+             cell.backgroundImageView.load(url: url)
+        } else {
+            cell.backgroundImageView.image = UIImage(named: "gray")
+        }
+        cell.nameLabel.text = favorite.name
+        cell.playButton.isHidden = (favorite.type == .photo) ? true : false
+    
+    }
+    
     func loadPhotoDetailScreen(_ photo: Photo) {
         if let photoDetailVC = UIViewController.loginViewController() as? PhotoDetailViewController {
             photoDetailVC.photo = photo
+            self.navigationController?.navigationBar.isHidden = false
             self.navigationController?.pushViewController(photoDetailVC, animated: true)
         }
     }
@@ -154,6 +200,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return photos.count
         case .videos:
             return videos.count
+        case .favorites:
+            return favourites.count
         default:
             return 0
         }
@@ -162,12 +210,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.homeScreenTableViewCellCellIdentifier, for: indexPath) as! HomeScreenTableViewCell
-        
+        cell.indexPath = indexPath
+        cell.delegate = self
         switch selectedTab {
         case .photos:
             configurePhotosCell(cell, withPhoto: photos[indexPath.row])
         case .videos:
             configureVideosCell(cell, withVideo: videos[indexPath.row])
+        case .favorites:
+            configureFavoriteCell(cell, withFavorite: favourites[indexPath.row])
         default:
             break
         }
@@ -181,9 +232,23 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if indexPath.row == photos.count - 1 {
-            loadPhotos()
+        switch selectedTab {
+        case .photos:
+            if indexPath.row == photos.count - 1 {
+                loadPhotos()
+            }
+        case .videos:
+            if indexPath.row == videos.count - 1 {
+                loadVideos()
+            }
+        case .favorites:
+            break
+        default:
+            break
         }
+        
+        
+        
     }
     
     
@@ -241,5 +306,32 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,U
         let size = (tab.title as NSString).size(withAttributes: nil)
         return CGSize(width: max(70, size.width + 40), height: 44.0)
     }
+}
+
+extension ViewController: HomeScreenTableViewCellProtocol {
+    func didTapFavotiteButtom(_ value: Bool, indexPath: IndexPath?) {
+        if let indexPath = indexPath {
+            photos[indexPath.row].liked = value
+            if value {
+                let fav = createFavPhoto(photos[indexPath.row])
+                favourites.append(fav)
+            } else {
+                if let index = favourites.index(where: { $0.id == photos[indexPath.row].id}) {
+                    favourites.remove(at: index)
+                }
+            }
+        }
+        
+        
+        tableView.reloadData()
+       
+        
+    }
+    
+    func didTapPlayButton(_ indexPath: IndexPath?) {
+        
+    }
+    
+    
 }
 

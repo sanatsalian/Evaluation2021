@@ -27,6 +27,7 @@
 		578F061225D7C825000BF20F /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F061125D7C825000BF20F /* PhotoDetailViewController.swift */; };
 		578F061425D7C89E000BF20F /* UIVIewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F061325D7C89E000BF20F /* UIVIewControllerExtension.swift */; };
 		578F061625D7C8B9000BF20F /* UIStoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F061525D7C8B9000BF20F /* UIStoryBoardExtension.swift */; };
+		57F05FCE25D7E09900DA675E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F05FCD25D7E09900DA675E /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		578F061125D7C825000BF20F /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		578F061325D7C89E000BF20F /* UIVIewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewControllerExtension.swift; sourceTree = "<group>"; };
 		578F061525D7C8B9000BF20F /* UIStoryBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryBoardExtension.swift; sourceTree = "<group>"; };
+		57F05FCD25D7E09900DA675E /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				578F060425D7A09B000BF20F /* Photo.swift */,
+				57F05FCD25D7E09900DA675E /* Favorite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				578F061225D7C825000BF20F /* PhotoDetailViewController.swift in Sources */,
 				578F061425D7C89E000BF20F /* UIVIewControllerExtension.swift in Sources */,
 				578F060D25D7AED6000BF20F /* ImageViewExtension.swift in Sources */,
+				57F05FCE25D7E09900DA675E /* Favorite.swift in Sources */,
 				578F060F25D7C11C000BF20F /* UIVIewExtension.swift in Sources */,
 				5788715B25D6BCBF00A34002 /* AppDelegate.swift in Sources */,
 				578F060025D79CF3000BF20F /* HomeScreenTableViewCell.swift in Sources */,
