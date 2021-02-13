@@ -136,6 +136,13 @@ class ViewController: BaseViewController {
         cell.playButton.isHidden = false
     
     }
+    
+    func loadPhotoDetailScreen(_ photo: Photo) {
+        if let photoDetailVC = UIViewController.loginViewController() as? PhotoDetailViewController {
+            photoDetailVC.photo = photo
+            self.navigationController?.pushViewController(photoDetailVC, animated: true)
+        }
+    }
 
 }
 
@@ -178,6 +185,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             loadPhotos()
         }
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch selectedTab {
+        case .photos:
+            loadPhotoDetailScreen(photos[indexPath.row])
+        default:
+            break
+        }
+    }
+    
     
     
 }

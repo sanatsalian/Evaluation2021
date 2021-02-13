@@ -48,8 +48,13 @@ class BaseViewController: UIViewController {
 
     func hideActivityIndicator(){
         if (activityView != nil){
-            activityView?.stopAnimating()
+            DispatchQueue.global().async {
+               self.activityView?.stopAnimating()
+            }
+                
+            
+            
         }
     }
-    
+     
 }

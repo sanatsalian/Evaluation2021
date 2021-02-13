@@ -251,20 +251,74 @@
             </objects>
             <point key="canvasLocation" x="1350.7246376811595" y="58.928571428571423"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Detail View Controller-->
         <scene sceneID="Nfk-zH-h8Y">
             <objects>
-                <viewController id="am6-vR-cRV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoDetailViewController" id="am6-vR-cRV" customClass="PhotoDetailViewController" customModule="Evaluation2021" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AMh-P8-rCp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SaQ-Bj-Tv3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVL-Tf-Rfx">
+                                <rect key="frame" x="152" y="762" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dY1-jR-Bej"/>
+                                    <constraint firstAttribute="width" constant="50" id="eST-8L-eY6"/>
+                                </constraints>
+                                <state key="normal" image="zoom-in"/>
+                                <connections>
+                                    <action selector="zoomInButtonTapped:" destination="am6-vR-cRV" eventType="touchUpInside" id="Pr5-Md-Ggi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pn9-LK-euK">
+                                <rect key="frame" x="207" y="762" width="46" height="30"/>
+                                <state key="normal" image="zoom-in copy"/>
+                                <connections>
+                                    <action selector="zoomOutButtonTapped:" destination="am6-vR-cRV" eventType="touchUpInside" id="e9O-Ng-c3O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5N-AS-JTl">
+                                <rect key="frame" x="354" y="94" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="BaJ-6U-dxg"/>
+                                    <constraint firstAttribute="height" constant="30" id="Gof-Qm-P4k"/>
+                                </constraints>
+                                <state key="normal" image="Details-Favorite-slect"/>
+                                <connections>
+                                    <action selector="favouriteButtonTapped:" destination="am6-vR-cRV" eventType="touchUpInside" id="RaW-h5-VVJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SaQ-Bj-Tv3" firstAttribute="top" secondItem="AMh-P8-rCp" secondAttribute="top" id="7c8-Vr-rid"/>
+                            <constraint firstItem="SaQ-Bj-Tv3" firstAttribute="leading" secondItem="Mm1-xc-r7D" secondAttribute="leading" id="A1g-36-Bop"/>
+                            <constraint firstItem="pn9-LK-euK" firstAttribute="leading" secondItem="bVL-Tf-Rfx" secondAttribute="trailing" constant="5" id="HsT-SX-hA4"/>
+                            <constraint firstItem="bVL-Tf-Rfx" firstAttribute="centerX" secondItem="SaQ-Bj-Tv3" secondAttribute="centerX" constant="-30" id="JV7-7T-igl"/>
+                            <constraint firstItem="Mm1-xc-r7D" firstAttribute="bottom" secondItem="SaQ-Bj-Tv3" secondAttribute="bottom" constant="50" id="LOy-KN-Hjh"/>
+                            <constraint firstItem="pn9-LK-euK" firstAttribute="width" secondItem="bVL-Tf-Rfx" secondAttribute="width" multiplier="0.92" id="Mqf-TT-fdl"/>
+                            <constraint firstItem="Mm1-xc-r7D" firstAttribute="trailing" secondItem="SaQ-Bj-Tv3" secondAttribute="trailing" id="XTm-y0-N9w"/>
+                            <constraint firstItem="Mm1-xc-r7D" firstAttribute="bottom" secondItem="bVL-Tf-Rfx" secondAttribute="bottom" constant="70" id="Ypd-M6-5LH"/>
+                            <constraint firstItem="Mm1-xc-r7D" firstAttribute="trailing" secondItem="S5N-AS-JTl" secondAttribute="trailing" constant="30" id="Zh7-IC-ddS"/>
+                            <constraint firstItem="S5N-AS-JTl" firstAttribute="top" secondItem="Mm1-xc-r7D" secondAttribute="top" constant="50" id="f3X-jQ-Yda"/>
+                            <constraint firstItem="pn9-LK-euK" firstAttribute="centerY" secondItem="bVL-Tf-Rfx" secondAttribute="centerY" id="mMX-ph-5Kk"/>
+                            <constraint firstItem="pn9-LK-euK" firstAttribute="height" secondItem="bVL-Tf-Rfx" secondAttribute="height" id="vo8-Jv-x5u"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Mm1-xc-r7D"/>
                     </view>
+                    <connections>
+                        <outlet property="favouriteButton" destination="S5N-AS-JTl" id="zFB-LB-BPn"/>
+                        <outlet property="imageView" destination="SaQ-Bj-Tv3" id="fkW-TO-8lQ"/>
+                        <outlet property="zoomInButton" destination="bVL-Tf-Rfx" id="557-R9-tdx"/>
+                        <outlet property="zoomOutButton" destination="pn9-LK-euK" id="nnm-DZ-qCV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdM-bs-LmT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2111.594202898551" y="-21.428571428571427"/>
+            <point key="canvasLocation" x="2126" y="64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kmQ-5S-Bdj">
@@ -292,5 +346,7 @@
         <image name="Oval" width="36" height="36"/>
         <image name="Search Icon" width="18" height="18"/>
         <image name="Videoicon" width="64" height="64"/>
+        <image name="zoom-in" width="24" height="24"/>
+        <image name="zoom-in copy" width="24" height="24"/>
     </resources>
 </document>
