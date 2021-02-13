@@ -22,6 +22,7 @@ class ViewController: BaseViewController {
             let previousSelectedIndexpath = IndexPath(item: oldValue.rawValue, section: 0)
             let selectedIndexpath = IndexPath(item: selectedTab.rawValue, section: 0)
             collectionView.reloadItems(at: [previousSelectedIndexpath, selectedIndexpath])
+            loadData()
         }
     }
     
@@ -30,10 +31,16 @@ class ViewController: BaseViewController {
     var photopage = 1
     var photoLimit = 20
     
+    var videoObject: VideoObject?
+    var videos: [Video] = []
+    var videospage = 1
+    var videoLimit = 20
+    
     //MARK: - View Controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPhotos()
+        searchTextView.roundCorners(cornerRadius: 4)
         
     }
     
@@ -51,18 +58,53 @@ class ViewController: BaseViewController {
     
     //MARK: - Helper Methods
     
+    func loadData() {
+        switch selectedTab {
+        case .photos:
+            loadPhotos()
+        case .videos:
+            loadVideos()
+        default:
+            break
+        }
+    }
+    
     func loadPhotos() {
+        showActivityIndicator()
         NewtworkManager.loadPhotos(of: "animal", page: photopage, perPage: photoLimit) { [weak self] response in
+            self?.hideActivityIndicator()
             self?.photopage = (self?.photopage ?? 1) + 1
             self?.processPhotosResponse (response: response)
         }
     }
     
+    func loadVideos() {
+        showActivityIndicator()
+        NewtworkManager.loadVideos(of: "sunset", page: videospage, perPage: videoLimit) { [weak self] response in
+            self?.hideActivityIndicator()
+            self?.videospage = (self?.videospage ?? 1) + 1
+            self?.processVideosResponse (response: response)
+        }
+    }
+    
     private func processPhotosResponse (response: APIResponse) {
-        
         if response.status == .ok {
             self.photoObject = response.data as? PhotoObject
             self.photos.append(contentsOf: self.photoObject?.photos ?? [])
+    
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
+            
+        } else {
+            self.displayError(with: response.errorMessage ?? "")
+        }
+    }
+    
+    private func processVideosResponse (response: APIResponse) {
+        if response.status == .ok {
+            self.videoObject = response.data as? VideoObject
+            self.videos.append(contentsOf: self.videoObject?.videos ?? [])
     
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
@@ -77,13 +119,21 @@ class ViewController: BaseViewController {
         if let url = URL(string: photo.source?.originalPhoto ?? "") {
              cell.backgroundImageView.load(url: url)
         } else {
-            cell.backgroundImageView.image = nil
+            cell.backgroundImageView.image = UIImage(named: "gray")
         }
-        
-         cell.playButton.isHidden = true
-        
-        
+        cell.playButton.isHidden = true
         cell.nameLabel.text = photo.photographer
+    
+    }
+    
+    func configureVideosCell(_ cell: HomeScreenTableViewCell, withVideo video: Video) {
+        if let url = URL(string: video.imageUrl ?? "") {
+             cell.backgroundImageView.load(url: url)
+        } else {
+            cell.backgroundImageView.image = UIImage(named: "gray")
+        }
+        cell.nameLabel.text = video.user?.name
+        cell.playButton.isHidden = false
     
     }
 
@@ -92,12 +142,29 @@ class ViewController: BaseViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photos.count
+        switch selectedTab {
+        case .photos:
+            return photos.count
+        case .videos:
+            return videos.count
+        default:
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.homeScreenTableViewCellCellIdentifier, for: indexPath) as! HomeScreenTableViewCell
-        configurePhotosCell(cell, withPhoto: photos[indexPath.row])
+        
+        switch selectedTab {
+        case .photos:
+            configurePhotosCell(cell, withPhoto: photos[indexPath.row])
+        case .videos:
+            configureVideosCell(cell, withVideo: videos[indexPath.row])
+        default:
+            break
+        }
+        
         return cell
     }
     

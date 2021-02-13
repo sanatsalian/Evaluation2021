@@ -23,6 +23,7 @@
 		578F060525D7A09B000BF20F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F060425D7A09B000BF20F /* Photo.swift */; };
 		578F060825D7A29B000BF20F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F060725D7A29B000BF20F /* NetworkManager.swift */; };
 		578F060D25D7AED6000BF20F /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F060C25D7AED6000BF20F /* ImageViewExtension.swift */; };
+		578F060F25D7C11C000BF20F /* UIVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F060E25D7C11C000BF20F /* UIVIewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		578F060425D7A09B000BF20F /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		578F060725D7A29B000BF20F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		578F060C25D7AED6000BF20F /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		578F060E25D7C11C000BF20F /* UIVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				578F060C25D7AED6000BF20F /* ImageViewExtension.swift */,
+				578F060E25D7C11C000BF20F /* UIVIewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				5788715F25D6BCBF00A34002 /* ViewController.swift in Sources */,
 				578F060525D7A09B000BF20F /* Photo.swift in Sources */,
 				578F060D25D7AED6000BF20F /* ImageViewExtension.swift in Sources */,
+				578F060F25D7C11C000BF20F /* UIVIewExtension.swift in Sources */,
 				5788715B25D6BCBF00A34002 /* AppDelegate.swift in Sources */,
 				578F060025D79CF3000BF20F /* HomeScreenTableViewCell.swift in Sources */,
 				578F05FE25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift in Sources */,

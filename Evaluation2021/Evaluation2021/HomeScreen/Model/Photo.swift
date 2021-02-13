@@ -29,6 +29,25 @@ struct PhotoObject: Codable {
 
 }
 
+struct VideoObject: Codable {
+    
+    var page: Int?
+    var perPage: Int?
+    var videos: [Video]?
+    var totalResults: Int?
+    
+    
+   
+    enum CodingKeys: String,CodingKey {
+        case page = "page"
+        case perPage = "per_page"
+        case videos = "videos"
+        case totalResults = "total_results"
+        
+    }
+
+}
+
 struct Photo: Codable {
     
     var id: Int?
@@ -54,6 +73,38 @@ struct Photo: Codable {
     }
 
 }
+
+struct Video: Codable {
+    
+    var id: Int?
+    var width: Double?
+    var height: Double?
+    var imageUrl: String?
+    var user: User?
+    
+   
+    enum CodingKeys: String,CodingKey {
+        case id = "id"
+        case width = "width"
+        case height = "height"
+        case imageUrl = "image"
+        case user = "user"
+    }
+
+}
+
+struct User: Codable {
+    var id: Int?
+    var name: String?
+    
+    
+    enum CodingKeys: String,CodingKey {
+        case id = "id"
+        case name = "name"
+        
+    }
+}
+
 
 struct Source: Codable {
     var originalPhoto: String?

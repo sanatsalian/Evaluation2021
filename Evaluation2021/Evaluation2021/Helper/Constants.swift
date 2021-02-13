@@ -46,6 +46,7 @@ let APIKey = "563492ad6f91700001000001fd79d40a657042268713198c35b46653"
 enum API: String {
     
     case search = "/search"
+    case videos = "/videos/popular"
     
     var withBaseURL: String {
         return baseUrl + version + self.rawValue

@@ -9,6 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    var activityView: UIActivityIndicatorView?
     
     var navigationView: UIView? {
         return UIView()
@@ -37,5 +38,18 @@ class BaseViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    func showActivityIndicator() {
+        activityView = UIActivityIndicatorView(style: .large)
+        activityView?.center = self.view.center
+        self.view.addSubview(activityView!)
+        activityView?.startAnimating()
+    }
+
+    func hideActivityIndicator(){
+        if (activityView != nil){
+            activityView?.stopAnimating()
+        }
+    }
     
 }

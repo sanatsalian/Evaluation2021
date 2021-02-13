@@ -16,8 +16,8 @@ class HomeScreenTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    
     @IBOutlet weak var playButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
        
