@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+
+enum AppConstants {
+    
+    static let homeNavigation = "NavigationView"
+    
+   
+}

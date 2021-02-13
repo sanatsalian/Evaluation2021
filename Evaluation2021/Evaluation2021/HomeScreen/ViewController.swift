@@ -14,7 +14,17 @@ class ViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigatinView()
+    
+    }
 
+    override var navigationView: UIView? {
+        
+        let navView = Bundle.main.loadNibNamed(AppConstants.homeNavigation, owner: self, options: nil)?.first as? UIView
+        return navView
+    }
 
 }
 
