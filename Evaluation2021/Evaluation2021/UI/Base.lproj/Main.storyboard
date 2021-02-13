@@ -146,10 +146,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mo6-nt-bNs">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mo6-nt-bNs">
                                                     <rect key="frame" x="8" y="8" width="398" height="204"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-Vg-BUb">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-Vg-BUb">
                                                     <rect key="frame" x="20" y="150" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="3zl-Aj-opC"/>
@@ -211,6 +211,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="WPV-2l-NXg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Fwn-UQ-Bvu"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -285,6 +289,7 @@
         <image name="Bannerimage" width="360" height="326"/>
         <image name="Details-Favorite-slect" width="29" height="27"/>
         <image name="Facorite_home-deselet" width="24" height="22"/>
+        <image name="Oval" width="36" height="36"/>
         <image name="Search Icon" width="18" height="18"/>
         <image name="Videoicon" width="64" height="64"/>
     </resources>

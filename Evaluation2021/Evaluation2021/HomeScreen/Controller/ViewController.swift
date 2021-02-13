@@ -22,14 +22,18 @@ class ViewController: BaseViewController {
             let previousSelectedIndexpath = IndexPath(item: oldValue.rawValue, section: 0)
             let selectedIndexpath = IndexPath(item: selectedTab.rawValue, section: 0)
             collectionView.reloadItems(at: [previousSelectedIndexpath, selectedIndexpath])
-//            getEoiSitePrepCount()
-//            switchChildViewController(from: oldValue, to: selectedTab)
         }
     }
+    
+    var photoObject: PhotoObject?
+    var photos: [Photo] = []
+    var photopage = 1
+    var photoLimit = 20
     
     //MARK: - View Controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadPhotos()
         
     }
     
@@ -43,8 +47,80 @@ class ViewController: BaseViewController {
         let navView = Bundle.main.loadNibNamed(AppConstants.homeNavigation, owner: self, options: nil)?.first as? UIView
         return navView
     }
+    
+    
+    //MARK: - Helper Methods
+    
+    func loadPhotos() {
+        NewtworkManager.loadPhotos(of: "animal", page: photopage, perPage: photoLimit) { [weak self] response in
+            self?.photopage = (self?.photopage ?? 1) + 1
+            self?.processPhotosResponse (response: response)
+        }
+    }
+    
+    private func processPhotosResponse (response: APIResponse) {
+        
+        if response.status == .ok {
+            self.photoObject = response.data as? PhotoObject
+            self.photos.append(contentsOf: self.photoObject?.photos ?? [])
+    
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
+            
+        } else {
+            self.displayError(with: response.errorMessage ?? "")
+        }
+    }
+    
+    func configurePhotosCell(_ cell: HomeScreenTableViewCell, withPhoto photo: Photo) {
+        if let url = URL(string: photo.source?.originalPhoto ?? "") {
+             cell.backgroundImageView.load(url: url)
+        } else {
+            cell.backgroundImageView.image = nil
+        }
+        
+         cell.playButton.isHidden = true
+        
+        
+        cell.nameLabel.text = photo.photographer
+    
+    }
 
 }
+
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.homeScreenTableViewCellCellIdentifier, for: indexPath) as! HomeScreenTableViewCell
+        configurePhotosCell(cell, withPhoto: photos[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 190
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == photos.count - 1 {
+            loadPhotos()
+        }
+    }
+    
+    
+}
+
+
+
+
+
+
+
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

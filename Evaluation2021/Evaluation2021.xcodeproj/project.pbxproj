@@ -20,6 +20,9 @@
 		578F05FC25D78AA6000BF20F /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 578F05FB25D78AA6000BF20F /* NavigationView.xib */; };
 		578F05FE25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F05FD25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift */; };
 		578F060025D79CF3000BF20F /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F05FF25D79CF3000BF20F /* HomeScreenTableViewCell.swift */; };
+		578F060525D7A09B000BF20F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F060425D7A09B000BF20F /* Photo.swift */; };
+		578F060825D7A29B000BF20F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F060725D7A29B000BF20F /* NetworkManager.swift */; };
+		578F060D25D7AED6000BF20F /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F060C25D7AED6000BF20F /* ImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		578F05FB25D78AA6000BF20F /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 		578F05FD25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		578F05FF25D79CF3000BF20F /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
+		578F060425D7A09B000BF20F /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		578F060725D7A29B000BF20F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		578F060C25D7AED6000BF20F /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,8 @@
 		5788715925D6BCBF00A34002 /* Evaluation2021 */ = {
 			isa = PBXGroup;
 			children = (
+				578F060925D7AE84000BF20F /* Extensions */,
+				578F060625D7A279000BF20F /* Network */,
 				578F05F625D78641000BF20F /* BaseViewController */,
 				578F05F525D785E7000BF20F /* HomeScreen */,
 				5788718325D6BE4100A34002 /* UI */,
@@ -141,10 +149,9 @@
 		578F05F525D785E7000BF20F /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5788715E25D6BCBF00A34002 /* ViewController.swift */,
-				578F05FB25D78AA6000BF20F /* NavigationView.xib */,
-				578F05FD25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift */,
-				578F05FF25D79CF3000BF20F /* HomeScreenTableViewCell.swift */,
+				578F060325D7A07D000BF20F /* Model */,
+				578F060225D7A016000BF20F /* UI */,
+				578F060125D79FC6000BF20F /* Controller */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -155,6 +162,48 @@
 				578F05F725D78660000BF20F /* BaseViewController.swift */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		578F060125D79FC6000BF20F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5788715E25D6BCBF00A34002 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		578F060225D7A016000BF20F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				578F05FB25D78AA6000BF20F /* NavigationView.xib */,
+				578F05FD25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift */,
+				578F05FF25D79CF3000BF20F /* HomeScreenTableViewCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		578F060325D7A07D000BF20F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				578F060425D7A09B000BF20F /* Photo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		578F060625D7A279000BF20F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				578F060725D7A29B000BF20F /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		578F060925D7AE84000BF20F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				578F060C25D7AED6000BF20F /* ImageViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +310,10 @@
 			files = (
 				5788718225D6BDF100A34002 /* Constants.swift in Sources */,
 				5788716525D6BCBF00A34002 /* Evaluation2021.xcdatamodeld in Sources */,
+				578F060825D7A29B000BF20F /* NetworkManager.swift in Sources */,
 				5788715F25D6BCBF00A34002 /* ViewController.swift in Sources */,
+				578F060525D7A09B000BF20F /* Photo.swift in Sources */,
+				578F060D25D7AED6000BF20F /* ImageViewExtension.swift in Sources */,
 				5788715B25D6BCBF00A34002 /* AppDelegate.swift in Sources */,
 				578F060025D79CF3000BF20F /* HomeScreenTableViewCell.swift in Sources */,
 				578F05FE25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift in Sources */,
