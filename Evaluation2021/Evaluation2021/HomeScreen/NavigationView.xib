@@ -15,7 +15,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fok-S5-llP">
                     <rect key="frame" x="0.0" y="0.0" width="317" height="40"/>
-                    <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="adn-qQ-p8r"/>
                     </constraints>
@@ -27,24 +27,14 @@
                         <constraint firstAttribute="width" constant="101" id="prh-Dm-bpF"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jw3-ch-Jin">
-                    <rect key="frame" x="0.0" y="93" width="317" height="1"/>
-                    <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="LBG-xz-45w"/>
-                    </constraints>
-                </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="VtD-SW-4E1" firstAttribute="bottom" secondItem="Jw3-ch-Jin" secondAttribute="bottom" id="3Am-vX-bNM"/>
-                <constraint firstItem="OlN-9R-UQp" firstAttribute="bottom" secondItem="Jw3-ch-Jin" secondAttribute="bottom" id="5Gu-R5-VTX"/>
                 <constraint firstItem="VtD-SW-4E1" firstAttribute="leading" secondItem="OlN-9R-UQp" secondAttribute="leading" constant="16" id="5yE-p4-byo"/>
                 <constraint firstAttribute="trailing" secondItem="fok-S5-llP" secondAttribute="trailing" id="8WP-wD-kQD"/>
                 <constraint firstItem="fok-S5-llP" firstAttribute="leading" secondItem="4Cg-Lj-J8G" secondAttribute="leading" id="Kp0-Da-aWx"/>
                 <constraint firstItem="fok-S5-llP" firstAttribute="top" secondItem="4Cg-Lj-J8G" secondAttribute="top" id="LSV-bj-7nX"/>
-                <constraint firstItem="Jw3-ch-Jin" firstAttribute="leading" secondItem="OlN-9R-UQp" secondAttribute="leading" id="Oz5-Z9-TxY"/>
-                <constraint firstItem="OlN-9R-UQp" firstAttribute="trailing" secondItem="Jw3-ch-Jin" secondAttribute="trailing" id="tvV-sX-v8P"/>
+                <constraint firstItem="VtD-SW-4E1" firstAttribute="bottom" secondItem="OlN-9R-UQp" secondAttribute="bottom" id="hcR-wd-cKV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="OlN-9R-UQp"/>

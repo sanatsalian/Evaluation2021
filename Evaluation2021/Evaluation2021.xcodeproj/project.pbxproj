@@ -18,6 +18,8 @@
 		5788718225D6BDF100A34002 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788718125D6BDF000A34002 /* Constants.swift */; };
 		578F05F825D78660000BF20F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F05F725D78660000BF20F /* BaseViewController.swift */; };
 		578F05FC25D78AA6000BF20F /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 578F05FB25D78AA6000BF20F /* NavigationView.xib */; };
+		578F05FE25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F05FD25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift */; };
+		578F060025D79CF3000BF20F /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F05FF25D79CF3000BF20F /* HomeScreenTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		5788718125D6BDF000A34002 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		578F05F725D78660000BF20F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		578F05FB25D78AA6000BF20F /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
+		578F05FD25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		578F05FF25D79CF3000BF20F /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 			children = (
 				5788715E25D6BCBF00A34002 /* ViewController.swift */,
 				578F05FB25D78AA6000BF20F /* NavigationView.xib */,
+				578F05FD25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift */,
+				578F05FF25D79CF3000BF20F /* HomeScreenTableViewCell.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -257,6 +263,8 @@
 				5788716525D6BCBF00A34002 /* Evaluation2021.xcdatamodeld in Sources */,
 				5788715F25D6BCBF00A34002 /* ViewController.swift in Sources */,
 				5788715B25D6BCBF00A34002 /* AppDelegate.swift in Sources */,
+				578F060025D79CF3000BF20F /* HomeScreenTableViewCell.swift in Sources */,
+				578F05FE25D79542000BF20F /* HomeScreenCategoryCollectionViewCell.swift in Sources */,
 				5788715D25D6BCBF00A34002 /* SceneDelegate.swift in Sources */,
 				578F05F825D78660000BF20F /* BaseViewController.swift in Sources */,
 			);
